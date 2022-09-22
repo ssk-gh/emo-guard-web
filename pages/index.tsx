@@ -4,6 +4,7 @@ import { CallToAction } from '../components/call-to-action'
 import { What } from '../components/what'
 import { Why } from '../components/why'
 import { useLocale } from '../lib/use-locale'
+import { Demo } from '../components/demo'
 
 export default function Index() {
     const { message } = useLocale()
@@ -16,6 +17,7 @@ export default function Index() {
                 </Head>
                 <CallToAction />
                 <What />
+                <Demo />
                 <Why />
             </Layout>
         </>
