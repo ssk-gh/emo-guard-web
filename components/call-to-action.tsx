@@ -1,21 +1,13 @@
-import { Flex, Container, Heading, Stack, Text, Button, Box, Divider, HStack } from '@chakra-ui/react'
+import { Flex, Container, Heading, Stack, Text, Button, Box, Divider, HStack, Icon } from '@chakra-ui/react'
 import { AppStoreBadge } from './app-store-badge'
 import { FaChrome } from 'react-icons/fa'
 import { useLocale } from '../lib/use-locale'
 import { IconChrome, IconSafari } from './icon-browsers'
 import { MacAppStoreBadge } from './mac-app-store-badge'
+import { TbDeviceMobile, TbDeviceTablet, TbDeviceLaptop, TbDeviceDesktop } from 'react-icons/tb'
 
 export function CallToAction() {
     const { locale, message } = useLocale()
-
-    const getDemoSource = () => {
-        switch (locale) {
-            case 'ja':
-                return '/assets/home/emoguard_demo_ja.mp4'
-            default:
-                return '/assets/home/emoguard_demo_en.mp4'
-        }
-    }
 
     const getCtaMessage = () => {
         switch (locale) {
@@ -74,19 +66,8 @@ export function CallToAction() {
                         <AppStoreBadge />
                     </HStack>
                 </Stack>
-                <Flex w={'full'}>
-                    <Box
-                        maxW={'3xl'}
-                        boxShadow={'lg'}
-                        rounded={'2xl'}
-                        mx={{ base: 0, md: 20 }}
-                        p={5}
-                        bg={'white'}
-                        border={'1px'}
-                        borderColor={'gray.200'}
-                    >
-                        <video src={getDemoSource()} autoPlay muted loop style={{ borderRadius: '1rem' }} />
-                    </Box>
+                <Flex w={'full'} justifyContent={'center'}>
+                    <Hero />
                 </Flex>
                 <Stack spacing={3} direction={'row'} justifyContent={'center'}>
                     <Text color={'gray.400'}>{message.availableIn}</Text>
@@ -98,5 +79,35 @@ export function CallToAction() {
                 </Stack>
             </Stack>
         </Container>
+    )
+}
+
+function Hero() {
+    const { locale } = useLocale()
+    const src = (() => {
+        switch (locale) {
+            case 'ja':
+                return '/assets/home/EmoGuard_capture_target_ja.png'
+            default:
+                return '/assets/home/EmoGuard_capture_target_en.png'
+        }
+    })()
+
+    return (
+        <Box>
+            <HStack>
+                <Stack direction={{ base: 'column', sm: 'row' }} marginTop={'auto'} color={'gray.400'}>
+                    <Icon as={TbDeviceMobile} boxSize={{ base: '4rem', md: '7rem' }} />
+                    <Icon as={TbDeviceTablet} boxSize={{ base: '4rem', md: '7rem' }} />
+                </Stack>
+                <Box boxShadow={'md'}>
+                    <img src={src} width={'282px'} height={'399px'} alt={'Hero'} />
+                </Box>
+                <Stack direction={{ base: 'column', sm: 'row' }} marginTop={'auto !important'} color={'gray.400'}>
+                    <Icon as={TbDeviceLaptop} boxSize={{ base: '4rem', md: '7rem' }} />
+                    <Icon as={TbDeviceDesktop} boxSize={{ base: '4rem', md: '7rem' }} />
+                </Stack>
+            </HStack>
+        </Box>
     )
 }
