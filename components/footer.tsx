@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useLocale } from '../lib/use-locale'
 
 export function Footer() {
-    const { message } = useLocale()
+    const { locale, message } = useLocale()
 
     return (
         <Box
@@ -16,19 +16,31 @@ export function Footer() {
                 <NextLink href={'/'} passHref>
                     <Image src={'/assets/logo/logo.svg'} width={'165px'} height={'25px'} alt="logo" />
                 </NextLink>
-                <Stack direction={'row'} spacing={6}>
-                    <NextLink href={'/docs/tutorial'} passHref>
-                        <Link>{message.tutorial}</Link>
-                    </NextLink>
-                    <NextLink href={'/docs/faq'} passHref>
-                        <Link>{message.faq}</Link>
-                    </NextLink>
-                    <NextLink href={'pricing'} passHref>
-                        <Link>{message.pricing}</Link>
-                    </NextLink>
-                    <NextLink href={'/docs/privacy-policy'} passHref>
-                        <Link>{message.privacyPolicy}</Link>
-                    </NextLink>
+                <Stack direction={'row'} spacing={{ base: 0, md: 6 }}>
+                    <Stack direction={'row'} spacing={6} display={{ base: 'none', md: 'initial' }}>
+                        <NextLink href={'/docs/tutorial'} passHref>
+                            <Link>{message.tutorial}</Link>
+                        </NextLink>
+                        <NextLink href={'/docs/faq'} passHref>
+                            <Link>{message.faq}</Link>
+                        </NextLink>
+                        <NextLink href={'/pricing'} passHref>
+                            <Link>{message.pricing}</Link>
+                        </NextLink>
+                    </Stack>
+                    <Stack direction={'row'} spacing={6}>
+                        <NextLink href={'/docs/terms-of-use'} passHref>
+                            <Link>{message.terms}</Link>
+                        </NextLink>
+                        <NextLink href={'/docs/privacy-policy'} passHref>
+                            <Link>{message.privacy}</Link>
+                        </NextLink>
+                        {locale === 'ja' ? (
+                            <NextLink href={'/docs/specified-commercial-transactions-act'} passHref>
+                                <Link>特定商取引法表示</Link>
+                            </NextLink>
+                        ) : undefined}
+                    </Stack>
                 </Stack>
             </Container>
 

@@ -1,0 +1,227 @@
+---
+title: Tutorial
+excerpt: Let's get started!
+coverImage: /assets/docs/tutorial/cover.png
+order: 1
+date: '2022-09-21T04:53:46.706Z'
+author:
+  name: EmoGuard
+  picture:
+ogImage:
+  url: /assets/docs/tutorial/cover.png
+---
+
+Let's get started!  
+Install EmoGuard from the following stores for your device.
+
+- [Chrome Web Store]()
+- [Mac App Store]()
+- [App Store]()
+
+## Hide keywords
+
+Let's hide the keywords for a test.  
+Look at the following fruit list.
+
+- 🍎 Apples are red
+- 🍌 Bananas are yellow
+- 🍇 Grapes are purple
+- 🍊 Oranges are orange
+
+**Open EmoGuard on this page** and add your keyword by typing `Apples` in the `Enter any Keyword` text field on the Keywords tab.  
+Congratulations! The top item containing `Apples` should now be hidden with an emoji.
+
+That's all there is to basic usage.  
+You can hide text or elements you don't want to see on almost any site without any additional configuration.
+
+## Customize how to hide
+
+<Alert status="info" variant="left-accent" my={5}>
+  <AlertIcon />
+  From here we will be dealing with CSS selectors; you don't need to know anything about CSS selectors to go through the
+  tutorial, but if there is anything you want to know, you can learn about them [here](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Selectors)
+  or look up the term on the web.
+</Alert>
+
+Remove the `Apples` you just added to the keyword list.  
+The hidden text should appear.
+
+Now let's look again at the previous fruit list.
+
+- 🍎 Apples are red
+- 🍌 Bananas are yellow
+- 🍇 Grapes are purple
+- 🍊 Oranges are orange
+
+The only keyword specified was `Apples`, but even the unspecified `are red` were hidden.  
+This is because the target hiding mode is "Hide elements".
+
+Some people may want to hide only `Apples`.  
+Let's try to change the hiding mode.
+
+1. Open EmoGuard.
+2. Open the Keywords tab, add `Bananas` to the keyword list.
+3. Go to the Target tab, then click on the URL in the `Target` field and select `All Sites`.
+4. Find the CSS selector item called `li` and click on it.
+5. Click on the left icon and select `Hide text matching keywords`.
+
+Now you have changed the hiding mode from `Hide elements` to `Hide text`!  
+If you go back to the fruit list, you will see that only the part of the keyword you specified is hidden.
+
+You can flexibly adjust the hiding mode in this way.
+
+## Add CSS selectors
+
+Sometimes elements are not well hidden even after adding keywords.  
+Open EmoGuard and add `Grapes` to the keyword list.
+
+<Box rounded={'md'} boxShadow={'md'} borderWidth={'1px'} bg={'white'} p={5} my={5}>
+  <span>
+    <foo>🍇 Grapes are purple</foo>
+  </span>
+</Box>
+
+Perhaps there was no response of any kind.  
+Why is that?
+
+```html
+<span>
+  <foo>🍇 Grapes are purple</foo>
+</span>
+```
+
+If you look at the HTML, it is obvious that the uncommon HTML tag `<foo>` was used here.  
+EmoGuard supports a CSS selector called "Recommended CSS Selector" by default.  
+The Recommended CSS Selector supports the `<span>` tag, but not the special tag `<foo>`.
+
+### Solution
+
+- Add a new CSS selector.
+- Change the keyword search range of an existing CSS selector.
+
+There are several solutions, but let's try the former first.
+
+1. Open EmoGuard.
+2. Add a new CSS selector by typing `foo` in the `Enter any CSS Selector` text field on the Target tab.
+
+<Box rounded={'md'} boxShadow={'md'} borderWidth={'1px'} bg={'white'} p={5} my={5}>
+  <span>
+    <foo>🍇 Grapes are purple</foo>
+  </span>
+</Box>
+
+Congratulations! This time it was well hidden.
+
+There are a wide variety of websites in the world.  
+You may encounter pages that cannot be handled by EmoGuard's default settings.
+
+Don't worry. You can add CSS selectors to deal with it.
+
+<Alert status="info" variant="left-accent" my={5}>
+  <AlertIcon />
+  The Targets tab allows you to add CSS selectors to either "All Sites" or individual sites. CSS selectors added to "All
+  Sites" will be used on all websites. If you add it to an individual site, it will only work within that site.
+</Alert>
+
+<Alert status="info" variant="left-accent" my={5}>
+  <AlertIcon />
+  If there are duplicate CSS selector values for "All Sites" and an individual site, the individual site's settings will
+  be used. This is useful when you want to override the "All sites" settings on another site.
+</Alert>
+
+## Customize the keyword search range
+
+Remember the previous solution.
+
+- Add a new CSS selector.
+- Change the keyword search range of an existing CSS selector.
+
+Now let's try the latter approach.
+
+Next we want to hide `Oranges`.  
+For the sake of the tutorial, we have prepared a special tag called `<bar>`.
+
+Open EmoGuard and add `Oranges` to the keyword list.
+
+<Box rounded={'md'} boxShadow={'md'} borderWidth={'1px'} bg={'white'} p={5} my={5}>
+  <span>
+    <bar>🍊 Oranges are orange</bar>
+  </span>
+</Box>
+
+```html
+<span>
+  <bar>🍊 Oranges are orange</bar>
+</span>
+```
+
+It is still not well hidden. (That's the intent)
+
+Earlier we added a new CSS selector, which was simple and straightforward.  
+Why do we need another method?
+
+HTML has an incredibly nested element structure.  
+You may try to add `bar` to the CSS selector list as before, but what if the following new HTML appears?
+
+```html
+<span>
+  <bar>
+    <baz>🍈 Melons are green</baz>
+  </bar>
+</span>
+```
+
+What a mess!  
+You have just added `bar` and now you have to add `baz` as well.  
+Soon after, you will realize that there is no end to this struggle.
+
+To be able to block keywords as you wish, you will have to confront this HTML nesting structure.
+
+Rest assured, we have a way.  
+EmoGuard provides two modes for keyword searching: `Shallow search` and `Deep search`.
+
+- Shallow Search: Search for keywords **in the direct text of element** matching the CSS selector
+- Deep Search: Search for keywords **in the text of elements and its descendants** matching the CSS selector
+
+<Alert status="info" variant="left-accent" my={5}>
+  <AlertIcon />
+  Deep search can only be selected when the hide mode is set to `Hide text matching keywords`.
+</Alert>
+
+The reason `Oranges` was not hidden earlier was because the target CSS selector was set to `Shallow search`.  
+Shallow search targets only the text directly below the element, but directly below the `<span>` tag is the `<bar>` tag, not the text `🍊 Oranges are orange`.
+
+Deep search that searches through all descendant elements would likely find `Oranges` successfully.
+
+1. Open EmoGuard.
+2. On the Target tab, click on the URL in the `Target` field and select `All Sites`.
+3. Find the `span` CSS selector entry and click on it.
+4. Click the search icon in the middle and select `Deep search`.
+
+<Box rounded={'md'} boxShadow={'md'} borderWidth={'1px'} bg={'white'} p={5} my={5}>
+  <span>
+    <foo>🍊 Oranges are orange</foo>
+  </span>
+</Box>
+
+Congratulations! This time it worked.
+
+Now nested elements are no longer a problem.
+
+<Alert status="warning" variant="left-accent" my={5}>
+  <AlertIcon />
+  By default, most CSS selectors are assigned `Shallow search`. Although `Deep search` may seem more convenient, heavy use
+  of `deep search` can easily corrupt the display of web pages. Please use `deep search` only when necessary.
+</Alert>
+
+<Alert status="info" variant="left-accent" my={5}>
+  <AlertIcon />
+  If the web page is not displaying properly, you can reset the recommended CSS selector on the options page.
+</Alert>
+
+## Good work!
+
+This concludes the tutorial.  
+We recommend that you reset the Recommended CSS Selector on the Options page to restore the settings you changed in this tutorial.
+
+🎉Happy internet life!🎉
