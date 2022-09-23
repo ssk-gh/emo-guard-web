@@ -16,7 +16,7 @@ export function Footer() {
                 <NextLink href={'/'} passHref>
                     <Image src={'/assets/logo/logo.svg'} width={'165px'} height={'25px'} alt="logo" />
                 </NextLink>
-                <Stack direction={'row'} spacing={{ base: 0, md: 6 }}>
+                <Stack direction={'row'} spacing={{ base: 0, md: 6 }} fontSize={'xs'}>
                     <Stack direction={'row'} spacing={6} display={{ base: 'none', md: 'initial' }}>
                         <NextLink href={'/docs/tutorial'} passHref>
                             <Link>{message.tutorial}</Link>
@@ -40,6 +40,9 @@ export function Footer() {
                                 <Link>特定商取引法表示</Link>
                             </NextLink>
                         ) : undefined}
+                        <NextLink href={'/docs/trademarks'} passHref>
+                            <Link>{message.trademarks}</Link>
+                        </NextLink>
                     </Stack>
                 </Stack>
             </Container>

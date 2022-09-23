@@ -6,6 +6,7 @@ export const en = {
     pricing: 'Pricing',
     terms: 'Terms', 
     privacy: 'Privacy',
+    trademarks: 'Trademarks',
     ctaPrimaryColored: 'Goodbye, cruel words.',
     ctaPrimary: 'Everywhere on the Web.',
     ctaSecondary: 'Keyword blocker for 1,900,000,000+ websites worldwide',

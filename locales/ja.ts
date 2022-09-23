@@ -6,6 +6,7 @@ export const ja = {
     pricing: '価格',
     terms: '利用規約', 
     privacy: 'プライバシー',
+    trademarks: '商標',
     ctaPrimaryColored: '心無い言葉にサヨナラ。',
     ctaPrimary: 'Webのあらゆる場所で、',
     ctaSecondary: '世界 1,900,000,000+ のサイトで使えるキーワードブロッカー',
