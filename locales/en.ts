@@ -16,7 +16,7 @@ export const en = {
     featureSecondary: 'This is a browser extension that allows you to block text or elements you don\'t want to see on any web site.',
     feature1Title: 'Block any keyword',
     feature1ContentHead: 'Add keywords',
-    feature1ContentMain: ' and EmoGuard will hide the target text or elements on the web page.',
+    feature1ContentMain: ' and EmoGuard will block the target text or elements on the web page.',
     feature2Title: 'Customizable',
     feature2ContentHead: 'Customize the CSS selector',
     feature2ContentMain: ' to control how it is hidden.',
@@ -52,7 +52,7 @@ export const en = {
     authFailed: 'Authentication Failed',
     authFailedGuide: 'The required authorization code could not be obtained. Please start over.',
     planPrimary: 'Free for desktop, paid for mobile',
-    planSecondary: 'Peace of mind can be obtained for the cost of a cup of coffee. On all your devices.',
+    planSecondary: 'Peace of mind can be obtained for the cost of a cup of coffee ☕ + a chocolate chip cookie 🍪',
     currencySymbol: '$',
     lifetime: 'LIFETIME',
     desktop: 'Desktop',
@@ -61,7 +61,7 @@ export const en = {
     pricingSecondary: 'Edit keywords and CSS selectors freely',
     pricingTertiary: 'Sync feature',
     mobile: 'Mobile (iOS)',
-    mobilePrice: '5',
+    mobilePrice: '6.99',
     mobilePricingPrimary: 'Unlimited access on iOS and iPadOS',
     notFound: 'The page you\'re looking for does not seem to exist'
 }

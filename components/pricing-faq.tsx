@@ -58,7 +58,7 @@ export function PricingFaq() {
     const features = getFeatures(locale)
 
     return (
-        <Box p={4} mt={3} pt={6} pb={8} bg={'gray.100'}>
+        <Box p={4} mt={3} pt={12} pb={14} bg={'gray.100'}>
             <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
                 <Heading fontSize={'3xl'}>{message.faq}</Heading>
             </Stack>
