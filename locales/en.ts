@@ -9,7 +9,7 @@ export const en = {
     trademarks: 'Trademarks',
     ctaPrimaryColored: 'Goodbye, cruel words.',
     ctaPrimary: 'Everywhere on the Web.',
-    ctaSecondary: 'Keyword blocker for 1,900,000,000+ websites worldwide',
+    ctaSecondary: 'cross-platform 🤝 keyword blocker',
     addToChrome: 'Add to Chrome',
     availableIn: 'Available in',
     featurePrimary: 'What is EmoGuard?',
@@ -52,7 +52,7 @@ export const en = {
     authFailed: 'Authentication Failed',
     authFailedGuide: 'The required authorization code could not be obtained. Please start over.',
     planPrimary: 'Free for desktop, paid for mobile',
-    planSecondary: 'Peace of mind can be obtained for the cost of a cup of coffee ☕ + a chocolate chip cookie 🍪',
+    planSecondary: 'Peace of mind can be obtained for the cost of a cup of coffee ☕',
     currencySymbol: '$',
     lifetime: 'LIFETIME',
     desktop: 'Desktop',
@@ -61,7 +61,7 @@ export const en = {
     pricingSecondary: 'Edit keywords and CSS selectors freely',
     pricingTertiary: 'Sync feature',
     mobile: 'Mobile (iOS)',
-    mobilePrice: '6.99',
+    mobilePrice: 'Coming Soon',
     mobilePricingPrimary: 'Unlimited access on iOS and iPadOS',
     notFound: 'The page you\'re looking for does not seem to exist'
 }

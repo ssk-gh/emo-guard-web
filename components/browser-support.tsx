@@ -27,7 +27,7 @@ export function BrowserSupport() {
                             Windows
                         </Th>
                         <Th color={'inherit'} textTransform={'none'}>
-                            Mac
+                            macOS
                         </Th>
                         <Th color={'inherit'} textTransform={'none'}>
                             Linux

@@ -9,7 +9,7 @@ export const ja = {
     trademarks: '商標',
     ctaPrimaryColored: '心無い言葉にサヨナラ。',
     ctaPrimary: 'Webのあらゆる場所で、',
-    ctaSecondary: '世界 1,900,000,000+ のサイトで使えるキーワードブロッカー',
+    ctaSecondary: 'スマホでも使えるキーワードブロッカー😎👍',
     addToChrome: 'Chrome に追加',
     availableIn: 'サポート',
     featurePrimary: 'EmoGuard とは？',
@@ -52,7 +52,7 @@ export const ja = {
     authFailed: '認証失敗',
     authFailedGuide: '認証コードが取得できませんでした。最初からやり直してください。',
     planPrimary: 'デスクトップ版は無料、モバイル版は有料',
-    planSecondary: 'コーヒー1杯☕ + チョコチップクッキー🍪 のお値段で手に入る安心感',
+    planSecondary: 'コーヒー1杯のお値段で手に入る安心感 ☕',
     currencySymbol: '\xA5',
     lifetime: '永久ライセンス',
     desktop: 'デスクトップ版',
@@ -61,7 +61,7 @@ export const ja = {
     pricingSecondary: 'キーワードとCSSセレクターを自由に編集',
     pricingTertiary: '同期機能',
     mobile: 'モバイル版 (iOS)',
-    mobilePrice: '690',
+    mobilePrice: '準備中',
     mobilePricingPrimary: 'iOS/iPadOS版の機能に無制限アクセス',
     notFound: 'お探しのページは見つかりませんでした。'
 }
