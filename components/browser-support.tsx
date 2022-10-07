@@ -1,9 +1,9 @@
 import { TableContainer, Table, TableCaption, Thead, Tr, Th, Tbody, Td, Tfoot, HStack, Text } from '@chakra-ui/react'
+import { useTranslation } from 'next-i18next'
 import { FaChrome, FaSafari } from 'react-icons/fa'
-import { useLocale } from '../lib/use-locale'
 
 export function BrowserSupport() {
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
 
     return (
         <TableContainer
@@ -16,12 +16,12 @@ export function BrowserSupport() {
         >
             <Table variant="simple" color={'white'}>
                 <TableCaption color={'white'} my={2}>
-                    {message.browserSupport}
+                    {t('browserSupport')}
                 </TableCaption>
                 <Thead>
                     <Tr color={'white'}>
                         <Th color={'inherit'} textTransform={'none'}>
-                            {message.browser}
+                            {t('browser')}
                         </Th>
                         <Th color={'inherit'} textTransform={'none'}>
                             Windows
@@ -48,11 +48,11 @@ export function BrowserSupport() {
                                 <Text>Chrome</Text>
                             </HStack>
                         </Td>
-                        <Td>{message.supported}</Td>
-                        <Td>{message.supported}</Td>
-                        <Td>{message.supported}</Td>
-                        <Td>{message.notSupported}</Td>
-                        <Td>{message.notSupported}</Td>
+                        <Td>{t('supported')}</Td>
+                        <Td>{t('supported')}</Td>
+                        <Td>{t('supported')}</Td>
+                        <Td>{t('notSupported')}</Td>
+                        <Td>{t('notSupported')}</Td>
                     </Tr>
                     <Tr>
                         <Td>
@@ -61,11 +61,11 @@ export function BrowserSupport() {
                                 <Text>Safari</Text>
                             </HStack>
                         </Td>
-                        <Td>{message.notSupported}</Td>
-                        <Td>{message.supported}</Td>
-                        <Td>{message.notSupported}</Td>
-                        <Td>{message.supported}</Td>
-                        <Td>{message.notSupported}</Td>
+                        <Td>{t('notSupported')}</Td>
+                        <Td>{t('supported')}</Td>
+                        <Td>{t('notSupported')}</Td>
+                        <Td>{t('supported')}</Td>
+                        <Td>{t('notSupported')}</Td>
                     </Tr>
                 </Tbody>
             </Table>

@@ -1,10 +1,9 @@
-import { useLocale } from '../lib/use-locale'
-import Image from 'next/image'
+import { useLanguage } from '../lib/use-language'
 
 export function AppStoreBadge() {
-    const { locale } = useLocale()
+    const language = useLanguage()
 
-    switch (locale) {
+    switch (language) {
         case 'ja':
             return (
                 <img

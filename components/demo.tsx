@@ -1,22 +1,34 @@
 import { ArrowForwardIcon } from '@chakra-ui/icons'
-import { VStack, Center, IconButton, HStack, Select, Button, Box, Text, BoxProps } from '@chakra-ui/react'
+import {
+    VStack,
+    Center,
+    IconButton,
+    HStack,
+    Select,
+    Button,
+    Box,
+    Text,
+    BoxProps,
+} from '@chakra-ui/react'
+import { useTranslation } from 'next-i18next'
 import { useEffect, useState } from 'react'
-import { useLocale } from '../lib/use-locale'
+import { useLanguage } from '../lib/use-language'
 
 export function Demo(props: BoxProps) {
-    const { locale, message } = useLocale()
+    const { t } = useTranslation('common')
+    const language = useLanguage()
     const comments = [
         {
-            comment: message.demoComment1,
+            comment: t('demoComment1'),
             keyword: 'EmoGuard',
         },
         {
-            comment: message.demoComment2,
-            keyword: message.text,
+            comment: t('demoComment2'),
+            keyword: t('text'),
         },
         {
-            comment: message.demoComment3,
-            keyword: message.element,
+            comment: t('demoComment3'),
+            keyword: t('element'),
         },
     ]
 
@@ -27,7 +39,7 @@ export function Demo(props: BoxProps) {
 
     useEffect(() => {
         setComment(comments[index].comment)
-    }, [locale])
+    }, [language])
 
     const block = () => {
         switch (hideMode) {
@@ -103,18 +115,17 @@ export function Demo(props: BoxProps) {
                         <Box bg={'white'} rounded={'md'}>
                             <Select
                                 variant="filled"
-                                defaultValue={'text'}
                                 value={hideMode}
                                 onChange={(event) => setHideMode(event.target.value)}
                             >
-                                <option value="text">{message.text}</option>
-                                <option value="element">{message.element}</option>
+                                <option value="text">{t('text')}</option>
+                                <option value="element">{t('element')}</option>
                             </Select>
                         </Box>
-                        {locale === 'ja' ? <Text>を</Text> : undefined}
+                        {language === 'ja' ? <Text>を</Text> : undefined}
                         <Box>
                             <Button colorScheme="pink" onClick={block}>
-                                {message.block}
+                                {t('block')}
                             </Button>
                         </Box>
                     </HStack>

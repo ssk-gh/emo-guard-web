@@ -1,6 +1,7 @@
 import { Box, Container, Heading, SimpleGrid, Icon, Text, Stack, HStack, VStack } from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
-import { useLocale } from '../lib/use-locale'
+import { useTranslation } from 'next-i18next'
+import { useLanguage } from '../lib/use-language'
 
 const getFeatures = (locale: string) => {
     switch (locale) {
@@ -54,13 +55,14 @@ const getFeatures = (locale: string) => {
 }
 
 export function PricingFaq() {
-    const { locale, message } = useLocale()
-    const features = getFeatures(locale)
+    const { t } = useTranslation('common')
+    const language = useLanguage()
+    const features = getFeatures(language)
 
     return (
         <Box p={4} mt={3} pt={12} pb={14} bg={'gray.100'}>
             <Stack spacing={4} as={Container} maxW={'3xl'} textAlign={'center'}>
-                <Heading fontSize={'3xl'}>{message.faq}</Heading>
+                <Heading fontSize={'3xl'}>{t('faq')}</Heading>
             </Stack>
 
             <Container maxW={'6xl'} mt={8}>

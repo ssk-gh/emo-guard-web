@@ -15,9 +15,9 @@ import {
 import { FaCheckCircle } from 'react-icons/fa'
 import { AppStoreBadge } from './app-store-badge'
 import { AddToChromeButton } from './add-to-chrome-button'
-import { useLocale } from '../lib/use-locale'
 import { IconChrome, IconSafari } from './icon-browsers'
 import { MacAppStoreBadge } from './mac-app-store-badge'
+import { useTranslation } from 'next-i18next'
 
 function PriceWrapper({ children }: { children: ReactNode }) {
     return (
@@ -35,16 +35,16 @@ function PriceWrapper({ children }: { children: ReactNode }) {
 }
 
 export function ThreeTierPricing() {
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
 
     return (
         <Box pt={12}>
             <VStack spacing={2} textAlign="center">
                 <Heading as="h1" fontSize="4xl">
-                    {message.planPrimary}
+                    {t('planPrimary')}
                 </Heading>
                 <Text fontSize="lg" color={'gray.500'}>
-                    {message.planSecondary}
+                    {t('planSecondary')}
                 </Text>
             </VStack>
             <Stack
@@ -57,11 +57,11 @@ export function ThreeTierPricing() {
                 <PriceWrapper>
                     <Box py={4} px={12}>
                         <Text fontWeight="500" fontSize="2xl">
-                            {message.desktop}
+                            {t('desktop')}
                         </Text>
                         <HStack justifyContent="center">
                             <Text fontSize="5xl" fontWeight="900">
-                                {message.desktopPrice}
+                                {t('desktopPrice')}
                             </Text>
                         </HStack>
                         <Stack spacing={3} direction={'row'} justifyContent="center" mt={2}>
@@ -76,15 +76,15 @@ export function ThreeTierPricing() {
                         <List spacing={3} textAlign="start" px={12}>
                             <ListItem>
                                 <ListIcon as={FaCheckCircle} color="green.500" />
-                                {message.desktopPricingPrimary}
+                                {t('desktopPricingPrimary')}
                             </ListItem>
                             <ListItem>
                                 <ListIcon as={FaCheckCircle} color="green.500" />
-                                {message.pricingSecondary}
+                                {t('pricingSecondary')}
                             </ListItem>
                             <ListItem>
                                 <ListIcon as={FaCheckCircle} color="green.500" />
-                                {message.pricingTertiary}
+                                {t('pricingTertiary')}
                             </ListItem>
                         </List>
                         <Box pt={3} pb={1}>
@@ -112,19 +112,19 @@ export function ThreeTierPricing() {
                                 fontWeight="600"
                                 rounded="xl"
                             >
-                                {message.lifetime}
+                                {t('lifetime')}
                             </Text>
                         </Box>
                         <Box py={4} px={12}>
                             <Text fontWeight="500" fontSize="2xl">
-                                {message.mobile}
+                                {t('mobile')}
                             </Text>
                             <HStack justifyContent="center">
                                 <Text fontSize="3xl" fontWeight="600">
-                                    {message.currencySymbol}
+                                    {t('currencySymbol')}
                                 </Text>
                                 <Text fontSize="5xl" fontWeight="900">
-                                    {message.mobilePrice}
+                                    {t('mobilePrice')}
                                 </Text>
                             </HStack>
                             <Stack spacing={3} direction={'row'} justifyContent="center" mt={2}>
@@ -135,15 +135,15 @@ export function ThreeTierPricing() {
                             <List spacing={3} textAlign="start" px={12}>
                                 <ListItem>
                                     <ListIcon as={FaCheckCircle} color="green.500" />
-                                    {message.mobilePricingPrimary}
+                                    {t('mobilePricingPrimary')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={FaCheckCircle} color="green.500" />
-                                    {message.pricingSecondary}
+                                    {t('pricingSecondary')}
                                 </ListItem>
                                 <ListItem>
                                     <ListIcon as={FaCheckCircle} color="green.500" />
-                                    {message.pricingTertiary}
+                                    {t('pricingTertiary')}
                                 </ListItem>
                             </List>
                             <Box pt={3} pb={1} textAlign={'center'}>

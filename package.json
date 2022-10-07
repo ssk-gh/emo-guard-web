@@ -1,9 +1,12 @@
 {
     "private": true,
     "scripts": {
+        "predev": "node code-generator.mjs",
         "dev": "next",
         "build": "next build",
         "start": "next start",
+        "preexport": "node code-generator.mjs",
+        "export": "next build && next export",
         "lint": "next lint",
         "typecheck": "tsc"
     },
@@ -20,6 +23,8 @@
         "framer-motion": "^6",
         "gray-matter": "^4.0.3",
         "next": "^12.3.1",
+        "next-i18next": "^12.1.0",
+        "next-language-detector": "^1.0.2",
         "next-mdx-remote": "^4.1.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",

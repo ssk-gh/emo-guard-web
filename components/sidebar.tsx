@@ -5,7 +5,6 @@ import {
     CloseButton,
     Flex,
     Icon,
-    Link,
     Drawer,
     DrawerContent,
     Text,
@@ -15,18 +14,13 @@ import {
     Grid,
     GridItem,
     DrawerOverlay,
+    useColorModeValue,
 } from '@chakra-ui/react'
-import { FiHome, FiTrendingUp, FiCompass, FiStar, FiSettings } from 'react-icons/fi'
 import { IconType } from 'react-icons'
 import { ReactText } from 'react'
 import PostType from '../interfaces/post'
 import { ArrowUpDownIcon } from '@chakra-ui/icons'
-import NextLink from 'next/link'
-
-interface LinkItemProps {
-    name: string
-    icon: IconType
-}
+import { UniversalLink } from './universal-link'
 
 interface SidebarProps {
     children: ReactNode
@@ -112,35 +106,38 @@ interface NavItemProps extends FlexProps {
 }
 const NavItem = ({ icon, slug, children, ...rest }: NavItemProps) => {
     return (
-        <NextLink href={`/docs/${slug}`} passHref>
-            <Link style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
-                <Flex
-                    align="center"
-                    p="4"
-                    mx="4"
-                    borderRadius="lg"
-                    role="group"
-                    cursor="pointer"
-                    _hover={{
-                        bg: 'cyan.400',
-                        color: 'white',
-                    }}
-                    {...rest}
-                >
-                    {icon && (
-                        <Icon
-                            mr="4"
-                            fontSize="16"
-                            _groupHover={{
-                                color: 'white',
-                            }}
-                            as={icon}
-                        />
-                    )}
-                    {children}
-                </Flex>
-            </Link>
-        </NextLink>
+        <UniversalLink
+            href={`/docs/${slug}`}
+            chakraLinkProps={{ style: { textDecoration: 'none' }, _focus: { boxShadow: 'none' } }}
+        >
+            <Flex
+                align="center"
+                p="4"
+                mx="4"
+                borderRadius="lg"
+                role="group"
+                cursor="pointer"
+                _hover={{
+                    textDecoration: 'none',
+                    bg: useColorModeValue('gray.200', 'gray.700'),
+                }}
+                transitionDuration={'var(--chakra-transition-duration-fast)'}
+                transitionTimingFunction={'var(--chakra-transition-easing-ease-out)'}
+                {...rest}
+            >
+                {icon && (
+                    <Icon
+                        mr="4"
+                        fontSize="16"
+                        _groupHover={{
+                            color: 'white',
+                        }}
+                        as={icon}
+                    />
+                )}
+                {children}
+            </Flex>
+        </UniversalLink>
     )
 }
 

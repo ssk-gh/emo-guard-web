@@ -1,23 +1,25 @@
 import { Flex, Container, Heading, Stack, Text, Button, Box, Divider, HStack, Icon } from '@chakra-ui/react'
 import { AppStoreBadge } from './app-store-badge'
 import { FaChrome } from 'react-icons/fa'
-import { useLocale } from '../lib/use-locale'
 import { IconChrome, IconSafari } from './icon-browsers'
 import { MacAppStoreBadge } from './mac-app-store-badge'
 import { TbDeviceMobile, TbDeviceTablet, TbDeviceLaptop, TbDeviceDesktop } from 'react-icons/tb'
+import { useTranslation } from 'next-i18next'
+import { useLanguage } from '../lib/use-language'
 
 export function CallToAction() {
-    const { locale, message } = useLocale()
+    const { t } = useTranslation('common')
+    const language = useLanguage()
 
     const getCtaMessage = () => {
-        switch (locale) {
+        switch (language) {
             case 'ja':
                 return (
                     <>
-                        {message.ctaPrimary}
+                        {t('ctaPrimary')}
                         <br />
                         <Text as={'span'} color={'purple.400'}>
-                            {message.ctaPrimaryColored}
+                            {t('ctaPrimaryColored')}
                         </Text>
                     </>
                 )
@@ -25,10 +27,10 @@ export function CallToAction() {
                 return (
                     <>
                         <Text as={'span'} color={'purple.400'}>
-                            {message.ctaPrimaryColored}
+                            {t('ctaPrimaryColored')}
                         </Text>
                         <br />
-                        {message.ctaPrimary}
+                        {t('ctaPrimary')}
                     </>
                 )
         }
@@ -46,7 +48,7 @@ export function CallToAction() {
                     {getCtaMessage()}
                 </Heading>
                 <Text fontSize={'lg'} color={'gray.500'} maxW={'3xl'} whiteSpace={'pre-wrap'}>
-                    {message.ctaSecondary}
+                    {t('ctaSecondary')}
                 </Text>
                 <Stack spacing={{ base: 3, sm: 6 }} direction={{ base: 'column', sm: 'row' }}>
                     <Box>
@@ -58,7 +60,7 @@ export function CallToAction() {
                             bg={'purple.400'}
                             _hover={{ bg: 'purple.500' }}
                         >
-                            {message.addToChrome}
+                            {t('addToChrome')}
                         </Button>
                     </Box>
                     <HStack spacing={{ base: 2, md: 6 }}>
@@ -70,7 +72,7 @@ export function CallToAction() {
                     <Hero />
                 </Flex>
                 <Stack spacing={3} direction={'row'} justifyContent={'center'}>
-                    <Text color={'gray.400'}>{message.availableIn}</Text>
+                    <Text color={'gray.400'}>{t('availableIn')}</Text>
                     <IconChrome />
                     <HStack>
                         <Divider orientation="vertical" />
@@ -83,9 +85,9 @@ export function CallToAction() {
 }
 
 function Hero() {
-    const { locale } = useLocale()
+    const language = useLanguage()
     const src = (() => {
-        switch (locale) {
+        switch (language) {
             case 'ja':
                 return '/assets/home/EmoGuard_capture_target_ja.png'
             default:

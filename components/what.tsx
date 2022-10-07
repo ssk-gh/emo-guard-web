@@ -1,22 +1,28 @@
 import { ReactNode } from 'react'
 import { Stack, Container, Box, Text, Heading, SimpleGrid, BoxProps } from '@chakra-ui/react'
-import { useLocale } from '../lib/use-locale'
 import { BrowserSupport } from './browser-support'
+import { useTranslation } from 'next-i18next'
+import { useLanguage } from '../lib/use-language'
 
 export function What() {
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
 
     return (
         <Box bg={'purple.400'} position={'relative'} p={3}>
             <Container maxW={{ base: '7xl', xl: '8xl' }} zIndex={10} position={'relative'}>
                 <Stack direction={{ base: 'column', xl: 'row' }}>
-                    <Stack flex={3} color={'gray.400'} justify={{ xl: 'center' }} pt={{ base: 4, md: 20, xl: 28 }}>
+                    <Stack
+                        flex={3}
+                        color={'gray.400'}
+                        justify={{ xl: 'center' }}
+                        pt={{ base: 4, md: 20, xl: 28 }}
+                    >
                         <Box mb={{ base: 10, xl: 20 }} textAlign={'center'}>
                             <Heading color={'white'} mb={5} fontSize={{ base: '3xl', md: '5xl' }}>
-                                {message.featurePrimary}
+                                {t('featurePrimary')}
                             </Heading>
                             <Text fontSize={'xl'} color={'gray.200'}>
-                                {message.featureSecondary}
+                                {t('featureSecondary')}
                             </Text>
                         </Box>
                         <Box display={{ xl: 'none' }} alignSelf={'center'} pb={10}>
@@ -42,9 +48,9 @@ export function What() {
 }
 
 function Demo(props: BoxProps) {
-    const { locale } = useLocale()
+    const language = useLanguage()
     const getDemoSource = () => {
-        switch (locale) {
+        switch (language) {
             case 'ja':
                 return '/assets/home/emoguard_demo_ja.mp4'
             default:
@@ -74,41 +80,41 @@ const StatsText = ({ children }: { children: ReactNode }) => (
 )
 
 function Features() {
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
     const features = [
         {
-            title: message.feature1Title,
+            title: t('feature1Title'),
             content: (
                 <>
-                    <StatsText>{message.feature1ContentHead}</StatsText>
-                    {message.feature1ContentMain}
+                    <StatsText>{t('feature1ContentHead')}</StatsText>
+                    {t('feature1ContentMain')}
                 </>
             ),
         },
         {
-            title: message.feature2Title,
+            title: t('feature2Title'),
             content: (
                 <>
-                    <StatsText>{message.feature2ContentHead}</StatsText>
-                    {message.feature2ContentMain}
+                    <StatsText>{t('feature2ContentHead')}</StatsText>
+                    {t('feature2ContentMain')}
                 </>
             ),
         },
         {
-            title: message.feature3Title,
+            title: t('feature3Title'),
             content: (
                 <>
-                    <StatsText>{message.feature3ContentHead}</StatsText>
-                    {message.feature3ContentMain}
+                    <StatsText>{t('feature3ContentHead')}</StatsText>
+                    {t('feature3ContentMain')}
                 </>
             ),
         },
         {
-            title: message.feature4Title,
+            title: t('feature4Title'),
             content: (
                 <>
-                    <StatsText>{message.feature4ContentHead}</StatsText>
-                    {message.feature4ContentMain}
+                    <StatsText>{t('feature4ContentHead')}</StatsText>
+                    {t('feature4ContentMain')}
                 </>
             ),
         },

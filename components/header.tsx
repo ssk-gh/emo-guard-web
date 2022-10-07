@@ -1,9 +1,17 @@
-import NextLink from 'next/link'
-import { Box, Flex, HStack, Link, IconButton, useDisclosure, useColorModeValue, Stack } from '@chakra-ui/react'
+import {
+    Box,
+    Flex,
+    HStack,
+    IconButton,
+    useDisclosure,
+    useColorModeValue,
+    Stack,
+    Image,
+} from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-import { useLocale } from '../lib/use-locale'
 import { LanguageSwitcher } from './language-switcher'
-import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
+import { UniversalLink } from './universal-link'
 
 interface LinkItem {
     name: string
@@ -15,36 +23,37 @@ interface NavLinkProps {
 }
 
 const NavLink = (props: NavLinkProps) => (
-    <NextLink href={props.link.href} passHref>
-        <Link
-            px={2}
-            py={1}
-            rounded={'md'}
-            _hover={{
+    <UniversalLink
+        href={props.link.href}
+        chakraLinkProps={{
+            px: 2,
+            py: 1,
+            rounded: 'md',
+            _hover: {
                 textDecoration: 'none',
                 bg: useColorModeValue('gray.200', 'gray.700'),
-            }}
-        >
-            {props.link.name}
-        </Link>
-    </NextLink>
+            },
+        }}
+    >
+        {props.link.name}
+    </UniversalLink>
 )
 
 export function Header() {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
 
     const Links: LinkItem[] = [
         {
-            name: message.tutorial,
+            name: t('tutorial'),
             href: '/docs/tutorial',
         },
         {
-            name: message.faq,
+            name: t('faq'),
             href: '/docs/faq',
         },
         {
-            name: message.pricing,
+            name: t('pricing'),
             href: '/pricing',
         },
     ]
@@ -62,9 +71,14 @@ export function Header() {
             >
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
                     <HStack _hover={{ cursor: 'pointer' }}>
-                        <NextLink href={'/'} passHref>
-                            <Image src={'/assets/logo/logo.svg'} width={'198px'} height={'30px'} alt="logo" />
-                        </NextLink>
+                        <UniversalLink href={'/'}>
+                            <Image
+                                src={'/assets/logo/logo.svg'}
+                                width={'198px'}
+                                height={'30px'}
+                                alt="logo"
+                            />
+                        </UniversalLink>
                     </HStack>
                     <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
                         {Links.map((link) => (

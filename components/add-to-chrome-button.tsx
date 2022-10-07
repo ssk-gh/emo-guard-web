@@ -1,9 +1,9 @@
 import { Button, ButtonProps } from '@chakra-ui/react'
+import { useTranslation } from 'next-i18next'
 import { FaChrome } from 'react-icons/fa'
-import { useLocale } from '../lib/use-locale'
 
 export function AddToChromeButton(props?: ButtonProps) {
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
 
     return (
         <Button
@@ -16,7 +16,7 @@ export function AddToChromeButton(props?: ButtonProps) {
             lineHeight={10}
             {...props}
         >
-            {message.addToChrome}
+            {t('addToChrome')}
         </Button>
     )
 }

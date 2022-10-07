@@ -1,10 +1,11 @@
-import { Box, Container, Link, Stack, Text, useColorModeValue } from '@chakra-ui/react'
-import NextLink from 'next/link'
-import Image from 'next/image'
-import { useLocale } from '../lib/use-locale'
+import { Box, Container, Image, Stack, Text, useColorModeValue } from '@chakra-ui/react'
+import { useTranslation } from 'next-i18next'
+import { UniversalLink } from './universal-link'
+import { useLanguage } from '../lib/use-language'
 
 export function Footer() {
-    const { locale, message } = useLocale()
+    const { t } = useTranslation('common')
+    const language = useLanguage()
 
     return (
         <Box
@@ -12,42 +13,46 @@ export function Footer() {
             bg={useColorModeValue('gray.50', 'gray.900')}
             color={useColorModeValue('gray.700', 'gray.200')}
         >
-            <Container as={Stack} maxW={'6xl'} py={4} spacing={4} justify={'center'} align={'center'}>
-                <NextLink href={'/'} passHref>
-                    <Image src={'/assets/logo/logo.svg'} width={'165px'} height={'25px'} alt="logo" />
-                </NextLink>
+            <Container
+                as={Stack}
+                maxW={'6xl'}
+                py={4}
+                spacing={4}
+                justify={'center'}
+                align={'center'}
+            >
+                <UniversalLink href={'/'}>
+                    <Image
+                        src={'/assets/logo/logo.svg'}
+                        width={'165px'}
+                        height={'25px'}
+                        alt="logo"
+                    />
+                </UniversalLink>
                 <Stack direction={'row'} spacing={{ base: 0, md: 6 }} fontSize={'xs'}>
                     <Stack direction={'row'} spacing={6} display={{ base: 'none', md: 'initial' }}>
-                        <NextLink href={'/docs/tutorial'} passHref>
-                            <Link>{message.tutorial}</Link>
-                        </NextLink>
-                        <NextLink href={'/docs/faq'} passHref>
-                            <Link>{message.faq}</Link>
-                        </NextLink>
-                        <NextLink href={'/pricing'} passHref>
-                            <Link>{message.pricing}</Link>
-                        </NextLink>
+                        <UniversalLink href="/docs/tutorial">{t('tutorial')}</UniversalLink>
+                        <UniversalLink href="/docs/faq">{t('faq')}</UniversalLink>
+                        <UniversalLink href="/pricing">{t('pricing')}</UniversalLink>
                     </Stack>
                     <Stack direction={'row'} spacing={6}>
-                        <NextLink href={'/docs/terms-of-use'} passHref>
-                            <Link>{message.terms}</Link>
-                        </NextLink>
-                        <NextLink href={'/docs/privacy-policy'} passHref>
-                            <Link>{message.privacy}</Link>
-                        </NextLink>
-                        {locale === 'ja' ? (
-                            <NextLink href={'/docs/specified-commercial-transactions-act'} passHref>
-                                <Link>特定商取引法表示</Link>
-                            </NextLink>
+                        <UniversalLink href="/docs/terms-of-use">{t('terms')}</UniversalLink>
+                        <UniversalLink href="/docs/privacy-policy">{t('privacy')}</UniversalLink>
+                        {language === 'ja' ? (
+                            <UniversalLink href="/docs/specified-commercial-transactions-act">
+                                特定商取引法表示
+                            </UniversalLink>
                         ) : undefined}
-                        <NextLink href={'/docs/trademarks'} passHref>
-                            <Link>{message.trademarks}</Link>
-                        </NextLink>
+                        <UniversalLink href="/docs/trademarks">{t('trademarks')}</UniversalLink>
                     </Stack>
                 </Stack>
             </Container>
 
-            <Box borderTopWidth={1} borderStyle={'solid'} borderColor={useColorModeValue('gray.200', 'gray.700')}>
+            <Box
+                borderTopWidth={1}
+                borderStyle={'solid'}
+                borderColor={useColorModeValue('gray.200', 'gray.700')}
+            >
                 <Container
                     as={Stack}
                     maxW={'6xl'}

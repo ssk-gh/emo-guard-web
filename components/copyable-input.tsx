@@ -1,5 +1,5 @@
 import { useClipboard, Flex, Input, Button, InputGroup, InputLeftAddon } from '@chakra-ui/react'
-import { useLocale } from '../lib/use-locale'
+import { useTranslation } from 'next-i18next'
 
 interface CopyableInputProps {
     value: string
@@ -8,7 +8,7 @@ interface CopyableInputProps {
 
 export function CopyableInput(props: CopyableInputProps) {
     const { hasCopied, onCopy } = useClipboard(props.value)
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
 
     return (
         <>
@@ -18,7 +18,7 @@ export function CopyableInput(props: CopyableInputProps) {
                     <Input value={props.value} variant={'outline'} isReadOnly placeholder={props.placeholder} />
                 </InputGroup>
                 <Button onClick={onCopy} ml={2}>
-                    {hasCopied ? message.copied : message.copy}
+                    {hasCopied ? t('copied') : t('copy')}
                 </Button>
             </Flex>
         </>

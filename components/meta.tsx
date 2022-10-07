@@ -1,9 +1,9 @@
+import { useTranslation } from 'next-i18next'
 import Head from 'next/head'
 import { HOME_OG_IMAGE_URL } from '../lib/constants'
-import { useLocale } from '../lib/use-locale'
 
 const Meta = () => {
-    const { message } = useLocale()
+    const { t } = useTranslation('common')
 
     return (
         <Head>
@@ -17,7 +17,7 @@ const Meta = () => {
             <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
             <meta name="theme-color" content="#8B86EA" />
             <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-            <meta name="description" content={message.ctaSecondary} />
+            <meta name="description" content={t('ctaSecondary')} />
             <meta property="og:image" content={HOME_OG_IMAGE_URL} />
         </Head>
     )
