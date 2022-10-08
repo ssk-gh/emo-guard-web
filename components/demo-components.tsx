@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import NextLink from 'next/link'
 import {
     Box,
@@ -19,6 +18,7 @@ import {
     Icon,
     Link,
     useDisclosure,
+    Image,
 } from '@chakra-ui/react'
 import { ReactNode, ReactText } from 'react'
 import { IconType } from 'react-icons'
@@ -52,7 +52,14 @@ export function BlogPostWithImage({ image, title, content, height }: BlogPostPro
                     mb={6}
                     pos={'relative'}
                 >
-                    <Image src={image} layout={'fill'} alt={title} />
+                    <Image
+                        src={image}
+                        minWidth={'100%'}
+                        maxWidth={'100%'}
+                        minHeight={'100%'}
+                        maxHeight={'100%'}
+                        alt={title}
+                    />
                 </Box>
                 <Stack className="post">
                     <Text
