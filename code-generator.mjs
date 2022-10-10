@@ -12,7 +12,7 @@ export default Redirect`
 }
 
 const generateCodes = () => {
-    const pages = glob.sync('pages/\\[locale\\]/**/*.tsx')
+    const pages = glob.sync('pages/\\[locale\\]/**/!(\\[)*!(\\]).tsx')
 
     pages.forEach((page) => {
         const parentCount = page.split('/').length - 2
