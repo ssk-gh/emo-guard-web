@@ -1,4 +1,4 @@
-import { Box, Stack } from '@chakra-ui/react'
+import { Box, SimpleGrid } from '@chakra-ui/react'
 import { BlogPostWithImage, Sidebar } from '../../components/demo-components'
 import { getStaticPaths, makeStaticProps } from '../../lib/get-static'
 import { useLanguage } from '../../lib/use-language'
@@ -41,7 +41,7 @@ const getMessages = (locale: string) => {
                     image: '/assets/demo/fire.jpg',
                     title: '有名YouTuberのエン・ジョーが炎上',
                     content:
-                        '有名YouTuberのエン・ジョーが投稿した動画がSNSで非難を浴びています。近年インフルエンサーの過激な行動や言動が加速しており問題視されています。',
+                        '有名YouTuberのエン・ジョーが投稿した動画がSNSで非難を浴びています。近年インフルエンサーの過激な行動や言動が問題視されています。',
                 },
             ]
         default:
@@ -60,9 +60,9 @@ const getMessages = (locale: string) => {
                 },
                 {
                     image: '/assets/demo/universe.jpg',
-                    title: 'The Beginning of the Universe and Us',
+                    title: 'The Beginning of the Universe',
                     content:
-                        'About 13.8 billion years from now, the universe is believed to have been created by the Big Bang. We will take a closer look at the roots of our existence.',
+                        "About 13.8 billion years from now, the universe is believed to have been created by the Big Bang. Let's approach our roots with science.",
                 },
                 {
                     image: '/assets/demo/corruption.jpg',
@@ -78,9 +78,9 @@ const getMessages = (locale: string) => {
                 },
                 {
                     image: '/assets/demo/fire.jpg',
-                    title: 'Famous YouTuber En Joe on Fire',
+                    title: 'Famous YouTuber En Joe goes up in flames',
                     content:
-                        'A video posted by famous YouTuber En Joe has been condemned on SNS. The extreme behavior and words and deeds of influencers have accelerated in recent years and are considered problematic.',
+                        'The extreme behavior and words and deeds of influencers have accelerated in recent years and are considered problematic.',
                 },
             ]
     }
@@ -93,12 +93,8 @@ export default function Demo() {
 
     return (
         <Sidebar titles={messages.map((message) => message.title)}>
-            <Box pr={{ base: 3, md: 6 }} pl={{ base: 3 }}>
-                <Stack
-                    direction={{ base: 'column', md: 'row' }}
-                    justify={'center'}
-                    spacing={{ base: -6, sm: 6 }}
-                >
+            <Box px={6} pt={6}>
+                <SimpleGrid minChildWidth={'330px'} spacingX={6} spacingY={6}>
                     <BlogPostWithImage
                         image={messages[0].image}
                         title={messages[0].title}
@@ -117,12 +113,6 @@ export default function Demo() {
                         content={messages[2].content}
                         height={height}
                     />
-                </Stack>
-                <Stack
-                    direction={{ base: 'column', md: 'row' }}
-                    justify={'center'}
-                    spacing={{ base: -6, sm: 6 }}
-                >
                     <BlogPostWithImage
                         image={messages[3].image}
                         title={messages[3].title}
@@ -141,7 +131,7 @@ export default function Demo() {
                         content={messages[5].content}
                         height={height}
                     />
-                </Stack>
+                </SimpleGrid>
             </Box>
         </Sidebar>
     )

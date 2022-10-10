@@ -32,34 +32,17 @@ interface BlogPostProps {
 
 export function BlogPostWithImage({ image, title, content, height }: BlogPostProps) {
     return (
-        <Center py={6}>
+        <Center>
             <Box
-                maxW={'445px'}
-                minW={{ md: '445px' }}
-                w={'full'}
+                h={'100%'}
                 bg={useColorModeValue('white', 'gray.900')}
                 boxShadow={'2xl'}
                 rounded={'md'}
                 p={6}
                 overflow={'hidden'}
-                height={height}
             >
-                <Box
-                    h={{ base: '173px', md: '210px' }}
-                    bg={'gray.100'}
-                    mt={-6}
-                    mx={-6}
-                    mb={6}
-                    pos={'relative'}
-                >
-                    <Image
-                        src={image}
-                        minWidth={'100%'}
-                        maxWidth={'100%'}
-                        minHeight={'100%'}
-                        maxHeight={'100%'}
-                        alt={title}
-                    />
+                <Box bg={'gray.100'} mt={-6} mx={-6} mb={6} pos={'relative'}>
+                    <Image src={image} minWidth={'100%'} maxWidth={'100%'} alt={title} />
                 </Box>
                 <Stack className="post">
                     <Text
@@ -94,7 +77,10 @@ export function Sidebar(props: SidebarProps) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <Box minH="100vh" bg={'gray.100'}>
-            <Grid templateAreas={`"nav main"`}>
+            <Grid
+                templateAreas={`"nav main"`}
+                gridTemplateColumns={{ base: '0 1fr', md: '280px 1fr' }}
+            >
                 <GridItem area={'nav'}>
                     <SidebarContent
                         titles={props.titles}
