@@ -1,4 +1,14 @@
-import { Box, Container, Heading, SimpleGrid, Icon, Text, Stack, HStack, VStack } from '@chakra-ui/react'
+import {
+    Box,
+    Container,
+    Heading,
+    SimpleGrid,
+    Icon,
+    Text,
+    Stack,
+    HStack,
+    VStack,
+} from '@chakra-ui/react'
 import { CheckIcon } from '@chakra-ui/icons'
 import { useTranslation } from 'next-i18next'
 import { useLanguage } from '../lib/use-language'
@@ -9,12 +19,12 @@ const getFeatures = (locale: string) => {
             return [
                 {
                     id: 1,
-                    title: 'HTML や CSS セレクターの知識がなくても拡張機能を使うことはできますか？',
+                    title: 'HTMLやCSSセレクターの知識がなくても拡張機能を使うことはできますか？',
                     text: '特別な知識がなくても基本的なキーワードブロック機能を使うことができます。',
                 },
                 {
                     id: 2,
-                    title: 'モバイル版を購入すればiOSとiPadOSの両方で使えるようになりますか？',
+                    title: 'モバイル版を購入すればiPhoneとiPadの両方で使えるようになりますか？',
                     text: 'はい、両方で使えるようになります。',
                 },
                 {
@@ -37,7 +47,7 @@ const getFeatures = (locale: string) => {
                 },
                 {
                     id: 2,
-                    title: 'If I purchase the mobile version, will it work on both iOS and iPadOS?',
+                    title: 'If I purchase the mobile version, will it work on both iPhone and iPad?',
                     text: 'Yes, it will work on both.',
                 },
                 {
