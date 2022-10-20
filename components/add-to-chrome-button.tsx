@@ -7,13 +7,19 @@ export function AddToChromeButton(props?: ButtonProps) {
 
     return (
         <Button
+            onClick={() =>
+                window.open(
+                    'https://chrome.google.com/webstore/detail/emoguard-keyword-blocker/jgjkefnbeaoejcbpfggcggicconjfldd',
+                    '_blank',
+                    'noopener'
+                )
+            }
             leftIcon={<FaChrome />}
             rounded={'full'}
             px={6}
             colorScheme={'purple'}
             bg={'purple.400'}
             _hover={{ bg: 'purple.500' }}
-            lineHeight={10}
             {...props}
         >
             {t('addToChrome')}

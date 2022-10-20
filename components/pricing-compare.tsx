@@ -72,7 +72,11 @@ export function ThreeTierPricing() {
                             <IconSafari />
                         </Stack>
                     </Box>
-                    <VStack bg={useColorModeValue('gray.50', 'gray.700')} py={4} borderBottomRadius={'xl'}>
+                    <VStack
+                        bg={useColorModeValue('gray.50', 'gray.700')}
+                        py={4}
+                        borderBottomRadius={'xl'}
+                    >
                         <List spacing={3} textAlign="start" px={12}>
                             <ListItem>
                                 <ListIcon as={FaCheckCircle} color="green.500" />
@@ -90,7 +94,7 @@ export function ThreeTierPricing() {
                         <Box pt={3} pb={1}>
                             <Stack spacing={5} direction={'row'}>
                                 <Box>
-                                    <AddToChromeButton />
+                                    <AddToChromeButton lineHeight={10} />
                                 </Box>
                                 <Box>
                                     <MacAppStoreBadge />
@@ -101,7 +105,12 @@ export function ThreeTierPricing() {
                 </PriceWrapper>
                 <PriceWrapper>
                     <Box position="relative">
-                        <Box position="absolute" top="-16px" left="50%" style={{ transform: 'translate(-50%)' }}>
+                        <Box
+                            position="absolute"
+                            top="-16px"
+                            left="50%"
+                            style={{ transform: 'translate(-50%)' }}
+                        >
                             <Text
                                 textTransform="uppercase"
                                 bg={useColorModeValue('red.300', 'red.700')}
@@ -131,7 +140,11 @@ export function ThreeTierPricing() {
                                 <IconSafari />
                             </Stack>
                         </Box>
-                        <VStack bg={useColorModeValue('gray.50', 'gray.700')} py={4} borderBottomRadius={'xl'}>
+                        <VStack
+                            bg={useColorModeValue('gray.50', 'gray.700')}
+                            py={4}
+                            borderBottomRadius={'xl'}
+                        >
                             <List spacing={3} textAlign="start" px={12}>
                                 <ListItem>
                                     <ListIcon as={FaCheckCircle} color="green.500" />
