@@ -31,7 +31,10 @@ export function Sidebar(props: SidebarProps) {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <Box minH="100vh" bg={'gray.100'}>
-            <Grid templateAreas={`"nav main"`}>
+            <Grid
+                templateAreas={`"nav main"`}
+                gridTemplateColumns={{ base: '0 1fr', md: '280px 1fr' }}
+            >
                 <GridItem area={'nav'}>
                     <SidebarContent
                         allPosts={props.allPosts}
@@ -70,10 +73,10 @@ const SidebarContent = ({ allPosts, onClose, ...rest }: SidebarContentProps) => 
     return (
         <Box
             bg={'white'}
-            w={{ base: 'full', md: 60 }}
+            w={{ base: 'full', md: '256px' }}
             mt={{ base: 0, md: 6 }}
             rounded={'2xl'}
-            ml={{ base: 0, md: 6 }}
+            ml={'auto'}
             py={5}
             boxShadow={{ base: 'none', md: 'md' }}
             {...rest}
