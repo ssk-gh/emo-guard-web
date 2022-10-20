@@ -17,11 +17,11 @@ ogImage:
 #### Q. Can I use the extension without any knowledge of HTML or CSS selectors?
 
 No special knowledge is required to use the keyword block feature.  
-Knowledge of HTML and CSS selectors may be required only when you want to customize the behavior of the keyword block to your liking.
+Knowledge of HTML and CSS selectors may be required only when you want to customize the behavior of your extension.
 
 ---
 
-#### Q. If I purchase the mobile version, will it work on both iOS and iPadOS?
+#### Q. If I purchase the mobile version, will it work on both iPhone and iPad?
 
 Yes, it will work on both.
 
@@ -39,13 +39,19 @@ The Android version is not supported because browser extensions are not availabl
 
 ---
 
-#### Q. Can I integrate with clouds other than Dropbox?
+#### Q. Can I integrate with cloud services other than Dropbox?
 
 Currently, only Dropbox is supported.
 
 ## How does the app work?
 
-#### Q. I want to change the emoji that hides elements and text
+#### Q. I want to customize my extension
+
+You can enable customization from "⋮" in the upper right of the popup screen.
+
+---
+
+#### Q. I want to change the emoji
 
 You can set your favorite emoji in the `EmoGuardian` section of the Options page.
 
@@ -53,7 +59,9 @@ You can set your favorite emoji in the `EmoGuardian` section of the Options page
 
 #### Q. I want to turn off the extension on a specific site
 
-Please open EmoGuard at the site where you want to turn off the extension and click the Power button to turn it off.
+1. Open EmoGuard on the site you want to turn off extensions for.
+2. Enable customization from "⋮" on the top right of the popup screen.
+3. Click the power button to turn off the extension.
 
 ---
 
@@ -71,7 +79,7 @@ Sorry, EmoGuard does not have the feature to manage keywords by site.
 
 #### Q. What is "Default CSS Selector"?
 
-It is a pre-setup CSS selector that allows user to use the keyword blocking feature out of the box.
+It is a pre-setup CSS selector that allows user to use the keyword blocking feature out of the box.  
 It is tuned to work on popular and well-known major sites.  
 Use of the Default CSS Selector is optional, and even if you do use it, you can freely customize the setting values.
 
@@ -86,8 +94,8 @@ If you wish to disable the default CSS selectors, click on the eye icon to `Show
 
 #### Q. What is the CSS selector's hiding mode?
 
-The hiding mode is an item for specifying "how to hide the target".  
-You can choose whether to hide the element or the text when a keyword is matched.
+The hiding mode is an item for specifying "how to hide text or elements".  
+You can choose to hide the entire element or just the text when a keyword is matched on a web page.
 
 ---
 
@@ -100,7 +108,7 @@ The search mode is for specifying "how to search for keywords".
 
 ---
 
-#### Q. "Deep Search" in search mode is not displayed and cannot be selected
+#### Q. "Deep Search" is not displayed in the search mode menu
 
 Deep Search can be selected only when the hiding mode is set to `Hide text matching keywords`.
 
@@ -108,7 +116,7 @@ Deep Search can be selected only when the hiding mode is set to `Hide text match
 
 #### Q. What does the xxx icon mean?
 
-Basically, extension icons and buttons show a tooltip when you mouse over them for a few seconds to read a hint.  
+Hover your mouse over the extension icon or button for a few seconds to see hints and usage instructions.  
 In the case of the mobile version, a long press will display a tooltip as well.
 
 ---
@@ -131,7 +139,8 @@ This will lengthen the time it takes for the element or text to be hidden, but t
 
 Please try the following workaround.
 
-- Change CSS selector settings
+- Reload the page
+- Change the relevant CSS selector settings
 - Delete the relevant CSS selector
 - Reset the default CSS selector
 - Turn off extensions on that site
@@ -141,13 +150,13 @@ Please try the following workaround.
 #### Q. Emojis on a web page may not disappear after removing CSS selectors or keywords
 
 Since EmoGuard runs immediately after a web page starts loading, in rare cases it may conflict with the behavior of the framework used in the web page.  
-In such cases, reloading the page will remove the emoji.
+In such cases, please reload the page to remove the emojis or turn off extensions on the site.
 
 ---
 
 #### Q. There are sites where the extension does not work
 
-Although EmoGuard is designed to work without problems in most places, unfortunately there may be sites where it does not work well.  
-Websites are created using a wide variety of technologies, and it is a technically difficult task to support them all.
+EmoGuard is designed to work with most websites, but unfortunately it's not perfect.  
+The web is created with a wide variety of technologies, and it is technically and practically difficult to support all of them.
 
-EmoGuard does not guarantee that it will work on all sites, but we will do our best to try to adapt to them as much as possible.
+EmoGuard is not guaranteed to work with every site, but we are continuing to tune it to work with as many websites as possible.
