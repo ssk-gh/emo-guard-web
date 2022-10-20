@@ -33,7 +33,7 @@ export function Sidebar(props: SidebarProps) {
         <Box minH="100vh" bg={'gray.100'}>
             <Grid
                 templateAreas={`"nav main"`}
-                gridTemplateColumns={{ base: '0 1fr', md: '280px 1fr' }}
+                gridTemplateColumns={{ base: '0 1fr', md: '264px 1fr' }}
             >
                 <GridItem area={'nav'}>
                     <SidebarContent
@@ -73,7 +73,7 @@ const SidebarContent = ({ allPosts, onClose, ...rest }: SidebarContentProps) => 
     return (
         <Box
             bg={'white'}
-            w={{ base: 'full', md: '256px' }}
+            w={{ base: 'full', md: 60 }}
             mt={{ base: 0, md: 6 }}
             rounded={'2xl'}
             ml={'auto'}
