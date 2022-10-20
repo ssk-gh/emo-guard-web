@@ -90,11 +90,13 @@ const SidebarContent = ({ allPosts, onClose, ...rest }: SidebarContentProps) => 
                 </Text>
                 <CloseButton onClick={onClose} />
             </Flex>
-            {allPosts.map((post) => (
-                <NavItem key={post.slug} slug={post.slug}>
-                    {post.title}
-                </NavItem>
-            ))}
+            {allPosts
+                .filter((post) => post.shouldList)
+                .map((post) => (
+                    <NavItem key={post.slug} slug={post.slug}>
+                        {post.title}
+                    </NavItem>
+                ))}
         </Box>
     )
 }

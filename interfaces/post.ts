@@ -4,6 +4,7 @@ import type Author from './author'
 type PostType = {
     slug: string
     title: string
+    shouldList: boolean
     order: number
     date: string
     coverImage: string

@@ -124,9 +124,10 @@ export async function getStaticProps({ params }: Params) {
     const docsDirectory = getDocsDirectory(params.locale)
     const post = getPostBySlug(docsDirectory, params.slug, [
         'title',
+        'slug',
+        'shouldList',
         'order',
         'date',
-        'slug',
         'author',
         'content',
         'ogImage',
@@ -141,9 +142,10 @@ export async function getStaticProps({ params }: Params) {
     })
     const allPosts = getAllPosts(docsDirectory, [
         'title',
+        'slug',
+        'shouldList',
         'order',
         'date',
-        'slug',
         'author',
         'coverImage',
         'excerpt',
